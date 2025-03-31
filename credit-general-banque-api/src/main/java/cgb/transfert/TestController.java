@@ -13,15 +13,11 @@ public class TestController {
 	
 	@GetMapping("/{id}")
 	public String obtenirTache(@PathVariable int id) {
-		
 		return "Recu : " + id ; // Si application properties avec spring.thymeleaf.prefix=classpath:/vues/
-
 	}
 	
 	@GetMapping("/")
 	public String testVide() {
-		
 		return "Racine sous test "  ; // Si application properties avec spring.thymeleaf.prefix=classpath:/vues/
-
 	}
 }
