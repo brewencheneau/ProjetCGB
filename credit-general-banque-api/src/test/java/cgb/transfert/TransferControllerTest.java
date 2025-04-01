@@ -19,6 +19,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import cgb.transfert.entity.Transfer;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 

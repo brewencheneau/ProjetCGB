@@ -1,6 +1,9 @@
-package cgb.transfert;
+package cgb.transfert.services;
 
 import org.apache.commons.validator.routines.IBANValidator;
+
+import cgb.transfert.exceptions.ExceptionInvalidIbanFormat;
+import cgb.transfert.exceptions.ExceptionInvalidUnCheckableIban;
 
 /**
  * Classe utilitaire pour la validation et l'extraction des informations d'un IBAN.

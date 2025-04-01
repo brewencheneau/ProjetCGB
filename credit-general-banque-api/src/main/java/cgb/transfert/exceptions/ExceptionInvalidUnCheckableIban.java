@@ -1,4 +1,4 @@
-package cgb.transfert;
+package cgb.transfert.exceptions;
 
 /**
  * Exception levée quand l’IBAN est bien formé mais que le CRC est invalide ou non vérifiable.

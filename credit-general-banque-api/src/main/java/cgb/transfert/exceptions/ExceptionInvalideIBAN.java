@@ -1,4 +1,4 @@
-package cgb.transfert;
+package cgb.transfert.exceptions;
 
 /**
  * Exception abstraite représentant une erreur liée à un IBAN invalide.

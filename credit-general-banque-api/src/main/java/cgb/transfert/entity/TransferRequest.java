@@ -1,4 +1,4 @@
-package cgb.transfert;
+package cgb.transfert.entity;
 
 
 import java.time.LocalDate;

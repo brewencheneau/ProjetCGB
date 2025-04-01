@@ -3,6 +3,9 @@ package cgb.transfert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import cgb.transfert.entity.Account;
+import cgb.transfert.repository.AccountRepository;
+import cgb.transfert.services.IbanGenerator;
 import jakarta.annotation.PostConstruct;
 
 @Component
@@ -13,27 +16,20 @@ public class DatabaseInitializer {
 
     @PostConstruct
     public void init() {
-        // Vérifiez si la base de données est vide avant d'insérer des données
+        // Si la base est vide, on génère 20 comptes avec IBAN valides
         if (accountRepository.count() == 0) {
-           insertSampleData(accountRepository);
+            insertSampleData(accountRepository);
         }
     }
 
     public static void insertSampleData(AccountRepository accountRepository) {
-        // Insérer des comptes d'exemple
-        Account account1 = new Account();
-        account1.setAccountNumber("123456789");
-        account1.setSolde(300.00);
-        accountRepository.save(account1);
+        for (int i = 0; i < 20; i++) {
+            Account account = new Account();
+            account.setAccountNumber(IbanGenerator.generateValidIban());
+            account.setSolde(1000.0 + (i * 100)); // Exemple : 1000€, 1100€, etc.
+            accountRepository.save(account);
+        }
 
-        Account account2 = new Account();
-        account2.setAccountNumber("987654321");
-        account2.setSolde(500.00);
-        accountRepository.save(account2);
-
-        Account account3 = new Account();
-        account3.setAccountNumber("456789123");
-        account3.setSolde(2000.00);
-        accountRepository.save(account3);
+        System.out.println("✅ 20 comptes avec IBAN valides ont été ajoutés à la base !");
     }
 }

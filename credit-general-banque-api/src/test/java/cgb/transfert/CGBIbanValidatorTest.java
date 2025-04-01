@@ -8,6 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import cgb.transfert.exceptions.ExceptionInvalidIbanFormat;
+import cgb.transfert.services.CGBIbanValidator;
+
 @SpringBootTest
 public class CGBIbanValidatorTest {
 
@@ -24,12 +27,12 @@ public class CGBIbanValidatorTest {
 	}
 	
 	@Test
-	public void testIban_Success() {
+	public void testIban_Success() throws Exception{
 		assertTrue(CGBIbanValidator.getInstanceValidator().isIbanValide("GB33BUKB20201555555555"));
 	}
 	
 	@Test
-	public void testIban_Failure() {
+	public void testIban_Failure() throws Exception{
 		assertFalse(CGBIbanValidator.getInstanceValidator().isIbanValide("FRJESUISFAUX220245"));
 	}
 	
